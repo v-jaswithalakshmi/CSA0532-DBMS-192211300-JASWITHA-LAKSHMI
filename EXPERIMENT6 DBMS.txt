@@ -1,0 +1,89 @@
+
+
+mysql> use sse;
+Database changed
+mysql> show tables;
++---------------+
+| Tables_in_sse |
++---------------+
+| employee      |
+| empsept       |
+| mentees       |
+| student       |
+| studepartment |
++---------------+
+5 rows in set (0.00 sec)
+
+mysql> alter table mentees add subject varchar(20);
+Query OK, 3 rows affected (0.03 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> update mentees set subject="PDSD" where Dept="CSE";
+Query OK, 3 rows affected (0.03 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
+
+mysql> select*from mentees;
++-----------+----------+------+---------+------------+-------+---------+
+| Regno     | Name     | Dept | Address | Fathername | Marks | subject |
++-----------+----------+------+---------+------------+-------+---------+
+| 192211300 | Jaswitha | CSE  | Chennai | Ramanaiah  |    98 | PDSD    |
+| 192211300 | Manasa   | CSE  | Chennai | sudhakar   |    91 | PDSD    |
+| 192211383 | Rama     | CSE  | Chennai | Ravi       |    99 | PDSD    |
++-----------+----------+------+---------+------------+-------+---------+
+3 rows in set (0.00 sec)
+
+mysql> select*from mentees where Marks BETWEEN 95 and 99;
++-----------+----------+------+---------+------------+-------+---------+
+| Regno     | Name     | Dept | Address | Fathername | Marks | subject |
++-----------+----------+------+---------+------------+-------+---------+
+| 192211300 | Jaswitha | CSE  | Chennai | Ramanaiah  |    98 | PDSD    |
+| 192211383 | Rama     | CSE  | Chennai | Ravi       |    99 | PDSD    |
++-----------+----------+------+---------+------------+-------+---------+
+2 rows in set (0.03 sec)
+
+mysql> select*from mentees where Marks NOT BETWEEN 99 and 100
+    -> ;;;
++-----------+----------+------+---------+------------+-------+---------+
+| Regno     | Name     | Dept | Address | Fathername | Marks | subject |
++-----------+----------+------+---------+------------+-------+---------+
+| 192211300 | Jaswitha | CSE  | Chennai | Ramanaiah  |    98 | PDSD    |
+| 192211300 | Manasa   | CSE  | Chennai | sudhakar   |    91 | PDSD    |
++-----------+----------+------+---------+------------+-------+---------+
+2 rows in set (0.00 sec)
+
+
+
+mysql> select sum(Marks) from mentees where Dept="CSE";
++------------+
+| sum(Marks) |
++------------+
+|        288 |
++------------+
+1 row in set (0.00 sec)
+
+mysql> select avg (Marks)as Average from mentees;
++---------+
+| Average |
++---------+
+| 96.0000 |
++---------+
+1 row in set (0.04 sec)
+
+mysql> select min(Marks) as maximum from mentees;
++---------+
+| maximum |
++---------+
+|      91 |
++---------+
+1 row in set (0.03 sec)
+
+mysql> select max(Marks)as maximum from mentees;
++---------+
+| maximum |
++---------+
+|      99 |
++---------+
+1 row in set (0.00 sec)
+
+
+

@@ -1,0 +1,92 @@
+
+mysql> use sse;
+Database changed
+mysql> show the tables;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'the tables' at line 1
+mysql> show tables;
++---------------+
+| Tables_in_sse |
++---------------+
+| employee      |
+| empsept       |
+| mentees       |
+| student       |
+| studepartment |
++---------------+
+5 rows in set (0.01 sec)
+
+mysql> select*from mentees;
++-----------+----------+------+---------+------------+
+| Regno     | Name     | Dept | Address | Fathername |
++-----------+----------+------+---------+------------+
+| 192211300 | Jaswitha | CSE  | Chennai | Ramanaiah  |
+| 192211300 | Manasa   | CSE  | Chennai | sudhakar   |
+| 192211383 | Rama     | CSE  | Chennai | Ravi       |
++-----------+----------+------+---------+------------+
+3 rows in set (0.00 sec)
+
+
+mysql> select*from mentees where Dept='ECE';
+Empty set (0.00 sec)
+
+mysql> select*from mentees where Dept='ECE';
+Empty set (0.00 sec)
+
+mysql> select*from mentees where Dept='CSE';
++-----------+----------+------+---------+------------+
+| Regno     | Name     | Dept | Address | Fathername |
++-----------+----------+------+---------+------------+
+| 192211300 | Jaswitha | CSE  | Chennai | Ramanaiah  |
+| 192211300 | Manasa   | CSE  | Chennai | sudhakar   |
+| 192211383 | Rama     | CSE  | Chennai | Ravi       |
++-----------+----------+------+---------+------------+
+3 rows in set (0.00 sec)
+
+mysql> select*from mentees where Name="Jaswitha";
++-----------+----------+------+---------+------------+
+| Regno     | Name     | Dept | Address | Fathername |
++-----------+----------+------+---------+------------+
+| 192211300 | Jaswitha | CSE  | Chennai | Ramanaiah  |
++-----------+----------+------+---------+------------+
+1 row in set (0.00 sec)
+
+mysql> alter table mentees add Marks int(3);
+Query OK, 3 rows affected (0.05 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> update mentees set marks=99 where Dept="CSE";
+Query OK, 3 rows affected (0.00 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
+
+mysql> update mentees set marks=98 where Name="Jaswitha";
+Query OK, 1 row affected (0.04 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update mentees set marks=91 where Name="Manasa";
+Query OK, 1 row affected (0.03 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select*from mentees;
++-----------+----------+------+---------+------------+-------+
+| Regno     | Name     | Dept | Address | Fathername | Marks |
++-----------+----------+------+---------+------------+-------+
+| 192211300 | Jaswitha | CSE  | Chennai | Ramanaiah  |    98 |
+| 192211300 | Manasa   | CSE  | Chennai | sudhakar   |    91 |
+| 192211383 | Rama     | CSE  | Chennai | Ravi       |    99 |
++-----------+----------+------+---------+------------+-------+
+3 rows in set (0.00 sec)
+
+mysql> select*from mentees where Dept like '%J%';
+Empty set (0.03 sec)
+
+mysql> select*from  mentees where Dept like '%G%';
+Empty set (0.00 sec)
+
+mysql> select*from mentees where Address like 'C__n_i';
+Empty set (0.00 sec)
+
+mysql> select*from mentees where Address like 'N__l_r';
+Empty set (0.00 sec)
+w
+
+

@@ -1,0 +1,39 @@
+mysql> USE SSE;
+Database changed
+mysql> Create table mentees(Regno int(10),Name varchar(20),Dept varchar(4),Address varchar(10),Fathername varchar(10));
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> insert into mentees values(192211300,"Jaswitha","CSE","nellore","Ramanaiah");
+Query OK, 1 row affected (0.04 sec)
+
+
+mysql> insert into mentees values(192211300,"Manasa","CSE","nellore","sudhakar");
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into mentees values(192211269,"Nireesha","CSE","Chitoor","Brahma");
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into mentees values(192211383,"Rama","CSE","Chittor","Ravi");
+Query OK, 1 row affected (0.03 sec)
+
+mysql> select name from mentees;
++----------+
+| name     |
++----------+
+| Jaswitha |
+| Manasa   |
+| Nireesha |
+| Rama     |
++----------+
+4 rows in set (0.02 sec)
+
+mysql> select*from mentees where Name="Jaswitha";
++-----------+----------+------+---------+------------+
+| Regno     | Name     | Dept | Address | Fathername |
++-----------+----------+------+---------+------------+
+| 192211300 | Jaswitha | CSE  | nellore | Ramanaiah  |
++-----------+----------+------+---------+------------+
+1 row in set (0.02 sec)
+
+mysql>
+

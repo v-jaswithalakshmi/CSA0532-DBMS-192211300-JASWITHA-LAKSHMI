@@ -1,0 +1,68 @@
+
+mysql> Use sse;
+Database changed
+mysql> select*from mentees;
++-----------+----------+------+---------+------------+
+| Regno     | Name     | Dept | Address | Fathername |
++-----------+----------+------+---------+------------+
+| 192211300 | Jaswitha | CSE  | nellore | Ramanaiah  |
+| 192211300 | Manasa   | CSE  | nellore | sudhakar   |
+| 192211269 | Nireesha | CSE  | Chitoor | Brahma     |
+| 192211383 | Rama     | CSE  | Chittor | Ravi       |
++-----------+----------+------+---------+------------+
+4 rows in set (0.00 sec)
+
+mysql> update mentees set Dept="BME" where Regno=192211301
+    -> ;
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+mysql> update mentees set Dept="BME" where Regno=192211301;
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+mysql> select*from mentees;
++-----------+----------+------+---------+------------+
+| Regno     | Name     | Dept | Address | Fathername |
++-----------+----------+------+---------+------------+
+| 192211300 | Jaswitha | CSE  | nellore | Ramanaiah  |
+| 192211300 | Manasa   | CSE  | nellore | sudhakar   |
+| 192211269 | Nireesha | CSE  | Chitoor | Brahma     |
+| 192211383 | Rama     | CSE  | Chittor | Ravi       |
++-----------+----------+------+---------+------------+
+4 rows in set (0.00 sec)
+
+ax to use near 'whaere Dept="CSE"' at line 1
+mysql> update mentees set Address="Chennai"where Dept="CSE"
+    -> ;
+Query OK, 4 rows affected (0.00 sec)
+Rows matched: 4  Changed: 4  Warnings: 0
+
+mysql> update mentees set Address="Chennai"where Dept="CSE";
+Query OK, 0 rows affected (0.02 sec)
+Rows matched: 4  Changed: 0  Warnings: 0
+
+mysql> select *from mentees;
++-----------+----------+------+---------+------------+
+| Regno     | Name     | Dept | Address | Fathername |
++-----------+----------+------+---------+------------+
+| 192211300 | Jaswitha | CSE  | Chennai | Ramanaiah  |
+| 192211300 | Manasa   | CSE  | Chennai | sudhakar   |
+| 192211269 | Nireesha | CSE  | Chennai | Brahma     |
+| 192211383 | Rama     | CSE  | Chennai | Ravi       |
++-----------+----------+------+---------+------------+
+4 rows in set (0.00 sec)
+
+mysql> delete from mentees where Fathername="Brahma";
+Query OK, 1 row affected (0.03 sec)
+
+mysql> select*from mentees;
++-----------+----------+------+---------+------------+
+| Regno     | Name     | Dept | Address | Fathername |
++-----------+----------+------+---------+------------+
+| 192211300 | Jaswitha | CSE  | Chennai | Ramanaiah  |
+| 192211300 | Manasa   | CSE  | Chennai | sudhakar   |
+| 192211383 | Rama     | CSE  | Chennai | Ravi       |
++-----------+----------+------+---------+------------+
+3 rows in set (0.00 sec)
+

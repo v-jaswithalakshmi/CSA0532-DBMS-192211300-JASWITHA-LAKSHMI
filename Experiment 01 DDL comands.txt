@@ -1,0 +1,134 @@
+
+
+mysql> create table sse;
+mysql> use sse;
+Database changed
+mysql> create table employee(supname varchar(10) , age int , salary int, DA int);
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> desc employee;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| supname | varchar(10) | YES  |     | NULL    |       |
+| age     | int(11)     | YES  |     | NULL    |       |
+| salary  | int(11)     | YES  |     | NULL    |       |
+| DA      | int(11)     | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+4 rows in set (0.05 sec)
+
+mysql> show tables;
++---------------+
+| Tables_in_sse |
++---------------+
+| employee      |
++---------------+
+1 row in set (0.02 sec)
+
+mysql> desc employee;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| supname | varchar(10) | YES  |     | NULL    |       |
+| age     | int(11)     | YES  |     | NULL    |       |
+| salary  | int(11)     | YES  |     | NULL    |       |
+| DA      | int(11)     | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+    
+mysql> use sse;
+Database changed
+mysql> create table student(rollno int, name varchar(20) , DOB varchar(10) , mobileno int , city varchar(20) ,dept varchar(5));
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> desc student;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| rollno   | int(11)     | YES  |     | NULL    |       |
+| name     | varchar(20) | YES  |     | NULL    |       |
+| DOB      | varchar(10) | YES  |     | NULL    |       |
+| mobileno | int(11)     | YES  |     | NULL    |       |
+| city     | varchar(20) | YES  |     | NULL    |       |
+| dept     | varchar(5)  | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+6 rows in set (0.04 sec)
+
+mysql> use sse;
+Database changed
+mysql> create table studepartment(Deptid int(20) ,Deptname varchar(20) ,Rollno int(5));
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> desc studepartment;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| Deptid   | int(20)     | YES  |     | NULL    |       |
+| Deptname | varchar(20) | YES  |     | NULL    |       |
+| Rollno   | int(5)      | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+3 rows in set (0.03 sec)
+
+mysql> desc employee;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| supname | varchar(10) | YES  |     | NULL    |       |
+| age     | int(11)     | YES  |     | NULL    |       |
+| salary  | int(11)     | YES  |     | NULL    |       |
+| DA      | int(11)     | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+4 rows in set (0.02 sec)
+
+mysql> create table empsept(Empid int , Empdtname varchar(15) , Emdeptid int);
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> desc employee;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| supname | varchar(10) | YES  |     | NULL    |       |
+| age     | int(11)     | YES  |     | NULL    |       |
+| salary  | int(11)     | YES  |     | NULL    |       |
+| DA      | int(11)     | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+4 rows in set (0.04 sec)
+
+mysql> insert into employee values("rama" ,18 , 5000000 ,100000);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert into employee values("Jaswitha" , 18 , 500000 , 10000);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into employee values("Nithin" , 18 , 500000 , 10000);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into employee values("Sindhu" , 18 , 500000 , 10000);
+Query OK, 1 row affected (0.03 sec)
+
+mysql> insert employee  values("Sasi" , 18 , 500000 , 10000);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> select*from employee;
++----------+------+---------+--------+
+| supname  | age  | salary  | DA     |
++----------+------+---------+--------+
+| rama     |   18 | 5000000 | 100000 |
+| Jaswitha |   18 |  500000 |  10000 |
+| Nithin   |   18 |  500000 |  10000 |
+| Sindhu   |   18 |  500000 |  10000 |
+| Sasi     |   18 |  500000 |  10000 |
++----------+------+---------+--------+
+5 rows in set (0.03 sec)
+
+mysql> show tables;
++---------------+
+| Tables_in_sse |
++---------------+
+| employee      |
+| empsept       |
+| student       |
+| studepartment |
++---------------+
+4 rows in set (0.00 sec)
