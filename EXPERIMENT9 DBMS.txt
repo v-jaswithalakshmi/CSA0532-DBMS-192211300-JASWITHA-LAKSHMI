@@ -1,0 +1,103 @@
+
+mysql> use see;
+ERROR 1049 (42000): Unknown database 'see'
+mysql> use sse;
+Database changed
+mysql> select*from mentees;
++-----------+----------+------+---------+------------+-------+---------+
+| Regno     | Name     | Dept | Address | Fathername | Marks | subject |
++-----------+----------+------+---------+------------+-------+---------+
+| 192211300 | Jaswitha | CSE  | Chennai | Ramanaiah  |    98 | PDSD    |
+| 192211300 | Manasa   | CSE  | Chennai | sudhakar   |    91 | PDSD    |
+| 192211383 | Rama     | CSE  | Chennai | Ravi       |    99 | PDSD    |
++-----------+----------+------+---------+------------+-------+---------+
+3 rows in set (0.00 sec)
+
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into mdept values(2,"CSE",192211301);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> insert into mdept values(2,"CSE",192211383);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> update mdept set Deptid=3 where Rollno=192211383;
+Query OK, 1 row affected (0.04 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select*from mdept;
++--------+----------+-----------+
+| Deptid | Deptname | Rollno    |
++--------+----------+-----------+
+|      1 | CSE      | 192211300 |
+|      2 | CSE      | 192211301 |
+|      3 | CSE      | 192211383 |
++--------+----------+-----------+
+3 rows in set (0.00 sec)
+
+mysql> update mdept set Deptname="ECE" where Deptid=192211300;
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+mysql> select*from mdept;
++--------+----------+-----------+
+| Deptid | Deptname | Rollno    |
++--------+----------+-----------+
+|      1 | CSE      | 192211300 |
+|      2 | CSE      | 192211301 |
+|      3 | CSE      | 192211383 |
++--------+----------+-----------+
+3 rows in set (0.00 sec)
+
+mysql> select Deptid,Deptname from mdept,mentees where mentees.Regno=mdept.Rollno;
++--------+----------+
+| Deptid | Deptname |
++--------+----------+
+|      1 | CSE      |
+|      1 | CSE      |
+|      3 | CSE      |
++--------+----------+
+3 rows in set (0.02 sec)
+
+mysql> select Deptid,Deptname,Rollno from mdept,mentees where mentees.Regno=mdept.Rollno;
++--------+----------+-----------+
+| Deptid | Deptname | Rollno    |
++--------+----------+-----------+
+|      1 | CSE      | 192211300 |
+|      1 | CSE      | 192211300 |
+|      3 | CSE      | 192211383 |
++--------+----------+-----------+
+3 rows in set (0.00 sec)
+
+mysql> select Deptid,Deptname,Rollno from mdept,mentees where mentees.Regno=mdept.Rollno;
++--------+----------+-----------+
+| Deptid | Deptname | Rollno    |
++--------+----------+-----------+
+|      1 | CSE      | 192211300 |
+|      1 | CSE      | 192211300 |
+|      3 | CSE      | 192211383 |
++--------+----------+-----------+
+3 rows in set (0.00 sec)
+
+'
+mysql> select Name,Deptid,Deptname,Rollno from mdept,mentees where mentees.Regno=mdept.Rollno;
++----------+--------+----------+-----------+
+| Name     | Deptid | Deptname | Rollno    |
++----------+--------+----------+-----------+
+| Jaswitha |      1 | CSE      | 192211300 |
+| Manasa   |      1 | CSE      | 192211300 |
+| Rama     |      3 | CSE      | 192211383 |
++----------+--------+----------+-----------+
+3 rows in set (0.00 sec)
+
+
+mysql> select Rollno,Deptname,Name,Address from mdept right outer join mentees on mdept.Rollno=mentees.Regno;
++-----------+----------+----------+---------+
+| Rollno    | Deptname | Name     | Address |
++-----------+----------+----------+---------+
+| 192211300 | CSE      | Jaswitha | Chennai |
+| 192211300 | CSE      | Manasa   | Chennai |
+| 192211383 | CSE      | Rama     | Chennai |
++-----------+----------+----------+---------+
+3 rows in set (0.00 sec)
+
