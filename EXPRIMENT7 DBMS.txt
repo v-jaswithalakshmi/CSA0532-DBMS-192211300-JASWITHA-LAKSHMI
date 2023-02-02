@@ -1,0 +1,64 @@
+
+mysql> use sse;
+Database changed
+mysql> show tabless;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'tabless' at line 1
+mysql> show tables;
++---------------+
+| Tables_in_sse |
++---------------+
+| employee      |
+| empsept       |
+| mentees       |
+| student       |
+| studepartment |
++---------------+
+5 rows in set (0.03 sec)
+
+mysql> select*from mentees;
++-----------+----------+------+---------+------------+-------+---------+
+| Regno     | Name     | Dept | Address | Fathername | Marks | subject |
++-----------+----------+------+---------+------------+-------+---------+
+| 192211300 | Jaswitha | CSE  | Chennai | Ramanaiah  |    98 | PDSD    |
+| 192211300 | Manasa   | CSE  | Chennai | sudhakar   |    91 | PDSD    |
+| 192211383 | Rama     | CSE  | Chennai | Ravi       |    99 | PDSD    |
++-----------+----------+------+---------+------------+-------+---------+
+3 rows in set (0.03 sec)
+
+mysql> select*from mentees order by Name;
++-----------+----------+------+---------+------------+-------+---------+
+| Regno     | Name     | Dept | Address | Fathername | Marks | subject |
++-----------+----------+------+---------+------------+-------+---------+
+| 192211300 | Jaswitha | CSE  | Chennai | Ramanaiah  |    98 | PDSD    |
+| 192211300 | Manasa   | CSE  | Chennai | sudhakar   |    91 | PDSD    |
+| 192211383 | Rama     | CSE  | Chennai | Ravi       |    99 | PDSD    |
++-----------+----------+------+---------+------------+-------+---------+
+3 rows in set (0.00 sec)
+
+mysql> select*from mentees group by Marks;
++-----------+----------+------+---------+------------+-------+---------+
+| Regno     | Name     | Dept | Address | Fathername | Marks | subject |
++-----------+----------+------+---------+------------+-------+---------+
+| 192211300 | Manasa   | CSE  | Chennai | sudhakar   |    91 | PDSD    |
+| 192211300 | Jaswitha | CSE  | Chennai | Ramanaiah  |    98 | PDSD    |
+| 192211383 | Rama     | CSE  | Chennai | Ravi       |    99 | PDSD    |
++-----------+----------+------+---------+------------+-------+---------+
+3 rows in set (0.02 sec)
+
+mysql> select*from mentees group by Dept;
++-----------+----------+------+---------+------------+-------+---------+
+| Regno     | Name     | Dept | Address | Fathername | Marks | subject |
++-----------+----------+------+---------+------------+-------+---------+
+| 192211300 | Jaswitha | CSE  | Chennai | Ramanaiah  |    98 | PDSD    |
++-----------+----------+------+---------+------------+-------+---------+
+1 row in set (0.00 sec)
+
+mysql> select*from mentees having Marks>95;
++-----------+----------+------+---------+------------+-------+---------+
+| Regno     | Name     | Dept | Address | Fathername | Marks | subject |
++-----------+----------+------+---------+------------+-------+---------+
+| 192211300 | Jaswitha | CSE  | Chennai | Ramanaiah  |    98 | PDSD    |
+| 192211383 | Rama     | CSE  | Chennai | Ravi       |    99 | PDSD    |
++-----------+----------+------+---------+------------+-------+---------+
+2 rows in set (0.00 sec)
+
